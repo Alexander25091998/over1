@@ -1,0 +1,39 @@
+{
+   "users": {
+      "admin": {
+        "password": "12345",
+        "role": "ADMIN_ACCES"
+      },
+      "мария": {
+        "password": "12345",
+        "role": "SRUDENT_ACCES"
+      },
+      "иван": {
+        "password": "12345",
+        "role": "SRUDENT_ACCES"
+      },
+      "александр": {
+        "password": "12345",
+        "role": "SRUDENT_ACCES"
+      },
+      "олег": {
+        "password": "12345",
+        "role": "SRUDENT_ACCES"
+      }
+  },
+  "menu": {
+    "ADMIN_ACCES": {
+        "1": "Посмотреть оценки ученика",
+        "2": "Посмотреть статистику",
+        "10": "Выйти"
+    },
+    "SRUDENT_ACCES": {
+        "1": "Пройти тест",
+        "2": "Посмотреть отметки",
+        "10": "Выйти и сохраниться"
+
+    }
+
+  }
+
+}
