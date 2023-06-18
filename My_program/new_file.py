@@ -1,7 +1,8 @@
 import xlsxwriter
 import bot
-def start_table(mouth1):
 
+
+def start_table(mouth1):
     workbook = xlsxwriter.Workbook('расход_топлива.xlsx')
     bold = workbook.add_format({'bold': True})
     counter = 2
