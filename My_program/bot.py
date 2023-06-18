@@ -1,7 +1,6 @@
 import telebot
 from pygments.lexers import markup
 from telebot import TeleBot
-import lesson_9_game_logic
 from telebot import types
 import datetime
 import new_file
