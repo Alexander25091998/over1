@@ -18,7 +18,7 @@ def get_mebel_items(link):
 def save_to_csv(mebel_itemsa):
     pandas.DataFrame(mebel_itemsa).to_csv('mebel.csv', index=[0])
 
-ghbdtn
+
 def run():
     mebel_items = get_mebel_items('https://www.kufar.by/l/mebel')
     save_to_csv(mebel_items)
