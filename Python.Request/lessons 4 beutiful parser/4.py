@@ -7,16 +7,16 @@ def get_mebel_items(link):
     response = requests.get(link)
     mebel_data = response.text
 
-    mebel_items = {}
+    mebel_items = []
     to_parse = BeautifulSoup(mebel_data, 'html.parser')
     # for elem in to_parse.find_all('a', href_=''):
     for elem in to_parse.find_all('a', class_='styles_wrapper__yaLfq'):
-        mebel_items[elem['href']] = elem.text
+        mebel_items.append((elem['href'], elem.text))
     return mebel_items
 
 
 def save_to_csv(mebel_itemsa):
-    pandas.DataFrame(mebel_itemsa).to_csv('mebel.csv', index=[0])
+    pandas.DataFrame(mebel_itemsa).to_csv('mebel.csv', index=False)
 
 
 def run():
