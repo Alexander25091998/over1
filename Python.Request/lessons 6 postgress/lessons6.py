@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas
-import sql_fille
+import postgres_client
 
 
 links_to_pars = [
@@ -38,9 +38,9 @@ def save_to_csv(mebel_items):
 
 
 def save_to_sqlite3(mebel_items):
-    connection = sql_fille.get_connection()
+    connection = postgres_client.get_connection()
     for item in mebel_items:
-        sql_fille.insert(connection, item[0], item[1], item[2])
+        postgres_client.insert(connection, item[0], item[1], item[2])
 
 
 def run():
