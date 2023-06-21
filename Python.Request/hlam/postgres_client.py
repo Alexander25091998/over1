@@ -4,7 +4,7 @@ from sqlite3 import Error
 
 def get_connection():
     try:
-        conn = sqlite3.connect('kufar.db')
+        conn = sqlite3.connect('../lessons 6 postgress/kufar.db')
         return conn
     except Error:
         print("Error")

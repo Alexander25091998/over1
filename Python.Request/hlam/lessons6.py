@@ -34,7 +34,7 @@ def get_mebel_by_link(link):
 
 
 def save_to_csv(mebel_items):
-    pandas.DataFrame(mebel_items).to_csv('mebel.csv', index=False)
+    pandas.DataFrame(mebel_items).to_csv('../lessons 6 postgress/mebel.csv', index=False)
 
 
 def save_to_sqlite3(mebel_items):
