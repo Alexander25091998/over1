@@ -48,7 +48,7 @@ class Parser:
         mebel_items = []
         for link in Parser.links_to_pars:
             mebel_items.extend(self.get_mebel_by_link(link))
-        # self.save_to_postgres(mebel_items)
+        self.save_to_postgres(mebel_items)
         self.save_to_csv(mebel_items)
 
 
