@@ -12,7 +12,7 @@ class Parser:
         'https://www.kufar.by/l/r~brest/mebel?cursor=eyJ0IjoiYWJzIiwiZiI6dHJ1ZSwicCI6NH0%3D',
         'https://www.kufar.by/l/r~brest/mebel?cursor=eyJ0IjoiYWJzIiwiZiI6dHJ1ZSwicCI6NX0%3D'
     ]
-    data_client_imp = data_client.CsvClient()
+    data_client_imp = data_client.PostgresClient()
 
     @staticmethod
     def get_mebel_by_link(link):
@@ -48,7 +48,7 @@ class Parser:
         mebel_items = []
         for link in Parser.links_to_pars:
             mebel_items.extend(self.get_mebel_by_link(link))
-        self.save_to_postgres(mebel_items)
+        # self.save_to_postgres(mebel_items)
         self.save_to_csv(mebel_items)
 
 

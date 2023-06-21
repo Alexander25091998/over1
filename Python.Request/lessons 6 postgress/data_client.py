@@ -7,6 +7,7 @@ import sqlite3
 from sqlite3 import Error
 from abc import ABC, abstractmethod
 
+
 class DataClient(ABC):
     @abstractmethod
     def get_connection(self):
@@ -113,22 +114,6 @@ class SQLite3Client(DataClient):
         conn.commit()
 
 
-
-class CsvClient(DataClient):
-    @staticmethod
-    def get_connection(link):
-        response = requests.get(link)
-        mebel_data = response.text
-
-        mebel_items = []
-        to_parse = BeautifulSoup(mebel_data, 'html.parser')
-        # for elem in to_parse.find_all('a', href_=''):
-        for elem in to_parse.find_all('a', class_='styles_wrapper__yaLfq'):
-            mebel_items.append((elem['href'], elem.text))
-        return mebel_items
-    @staticmethod
-    def save_to_csv( mebel_items):
-        pandas.DataFrame(mebel_items).to_csv('mebel.csv', index=False)
 
 # data_client = PostgresClient()
 # data_client = SQLite3Client()
