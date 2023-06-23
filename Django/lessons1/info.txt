@@ -1,0 +1,12 @@
+1. создание проекта
+puthon startproject {название проекта}
+2. создание приложения
+python .\manage.py startapp {name app}
+3. запуск сервера
+python .\manage.py runserver 8000
+4. решение вопроса с миграциями
+python manage.py migrate
+5. создание папки migrations
+ python .\manage.py makemigrations {name app}
+6. создание админа
+python .\manage.py createsuperuser
