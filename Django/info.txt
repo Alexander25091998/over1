@@ -1,12 +1,12 @@
 1. создание проекта
-puthon startproject {название проекта}
+django-admin startproject car
 2. создание приложения
-python .\manage.py startapp {name app}
+python .\manage.py startapp app_2
 3. запуск сервера
 python .\manage.py runserver 8000
 4. решение вопроса с миграциями
 python .\manage.py migrate
 5. создание папки migrations
- python .\manage.py makemigrations app_1
+ python .\manage.py makemigrations app_2
 6. создание админа
 python .\manage.py createsuperuser
