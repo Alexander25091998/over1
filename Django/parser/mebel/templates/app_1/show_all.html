@@ -2,7 +2,31 @@
 
 {% block content %}
 
-<h1>Привет Саша</h1>
-<h2>я уже на стажировке</h2>
+<h1 align="center">Вся наша мебель</h1>
+
+{% if mebels %}
+<div class="row justify-content-center">
+    <div class="col-auto">
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th scope="Цена"></th>
+                    <th scope="Описание"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mebel in mebels %}
+                    <tr>
+                        <td scope="row"><a href="{{mebel.link}}">{{mebel.price}}</a></td>
+                        <td>{{mebel.description}}</td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+    <h2>К сожалению мебели нет</h2>
+{% endif %}
 
 {% endblock %}
