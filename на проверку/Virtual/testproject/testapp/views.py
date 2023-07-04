@@ -3,11 +3,11 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('<h1>Главная<h1>')
+    return render(request, 'base.html')
 
 
 def about(request):
-    return HttpResponse('<h2>Главная<h2>')
+    return render(request, 'about.html')
 
 
 def user(request, user, age):
@@ -16,3 +16,6 @@ def user(request, user, age):
 
 def user_name(request, user):
     return HttpResponse(f'<h2>Имя {user}<h2>')
+
+def contacts(request):
+    return render(request, 'contacts.html')
