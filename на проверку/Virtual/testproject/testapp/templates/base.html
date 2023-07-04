@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <img src="{% static 'images/1.png' %}">
     <h1>Главная</h1>
     <h2>Имя</h2>
     {% block 'page' %}

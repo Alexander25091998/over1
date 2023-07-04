@@ -1,4 +1,16 @@
 {% extends 'base.html' %}
 {% block 'page' %}
 <h1>о нас</h1>
+{{zap}}
+{% for item in zap1 %}
+<p>
+    {{item}}
+</p>
+{% endfor %}
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="name">
+    <input type="date" name="date">
+    <input type="submit" name="ok">
+</form>
 {% endblock %}
