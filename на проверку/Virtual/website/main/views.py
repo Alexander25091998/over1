@@ -3,10 +3,14 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('<h4>Hello</h4>')
+    return render(request, 'main/index.html')
+
+
+def about(request):
+    return render(request, 'main/about.html')
 
 
 def user(request):
-    return HttpResponse('<a href="https://github.com/Alexander25091998">CCылка на мой GitHub</a>')
+    return render(request, 'main/contact.html')
 
 
