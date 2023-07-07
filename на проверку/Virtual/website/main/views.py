@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Task
+from .forms import TaskForm
 
 
 def index(request):
@@ -15,4 +16,11 @@ def about(request):
 def user(request):
     return render(request, 'main/contact.html')
 
-# {"title": "Главная страница", "tasks": "task"}
+
+def create(request):
+    form = TaskForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'main/createfile.html')
+
