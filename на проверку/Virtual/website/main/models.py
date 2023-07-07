@@ -1,10 +1,15 @@
 from django.db import models
 
+
 class Task(models.Model):
-    date = models.Model("Дата публикации")
-    tittle = models.CharField("Название", max_length=50)
+    title = models.CharField("Название", max_length=50)
     task = models.TextField("Описание")
-    contact = models.TextField("Контакты")
+    objects = models.Manager()
+
     def __str__(self):
-        return self.tittle
+        return self.title
+
+    class Meta:
+        verbose_name = "Задача"
+        verbose_name_plural = "Задачи"
 
