@@ -26,8 +26,6 @@ def create(request):
             return redirect('/')
         else:
             error = 'Форма была неверной'
-
-
     form = TaskForm()
     context = {
         'form': form,
