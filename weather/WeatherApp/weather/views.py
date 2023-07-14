@@ -4,16 +4,18 @@ import requests
 
 
 def index(request):
-    for e in City.objects.all():
-        cit = City.objects.all()
-        city = e
-        apiid = "8dccd4367e7a423e71b0d642cf108959"
-        url = "https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=" + apiid
-        res = requests.get(url.format(city))
+    apiid = "8dccd4367e7a423e71b0d642cf108959"
+    url = "https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=" + apiid
+    cities = City.objects.all()
+    all_cities = []
+    for city in cities:
+        res = requests.get(url.format(city.city))
         data = res.json()
         city_info = {
-            "city": city,
+            "city": city.city,
             "temp": data["main"]["temp"],
             "icon": data["weather"][0]["icon"],
         }
-        return render(request, 'weather/index.html',  {'city': cit, "city_info": city_info})
+        all_cities.append(city_info)
+    context = {"all_info": all_cities}
+    return render(request, 'weather/index.html', {'city': cities, "temp": data["main"]["temp"], "icon": data["weather"][0]["icon"] })

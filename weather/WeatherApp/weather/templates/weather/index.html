@@ -138,17 +138,17 @@
     <header class="py-1 mb-2 border-bottom" >
     <div class="container d-flex flex-wrap justify-content-center">
       <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
-        <svg class="bi me-2" width="0" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <svg class="bi me-2" width="50" height="32"><use xlink:href="#bootstrap"></use></svg>
         <span class="fs-4" >
-            {% if city %}
-                {% for el in city %}
+<!--            {% if city %}-->
+<!--                {% for el in city %}-->
                     <div>
-                        <b>Город:</b> {{el.city}}<br>
-                        <b>Температура:</b> {{city_info.temp}}<sup>0</sup><br>
+                        <b>Город:</b> {{city}}<br>
+                        <b>Температура:</b> {{el.temp}}<sup>0</sup><br>
                         <img  src="http://openweathermap.org/img/w/{{ city_info.icon }}.png" alt="Фото погоды">
                     </div>
-                {% endfor %}
-            {% endif %}
+<!--                {% endfor %}-->
+<!--            {% endif %}-->
         </span>
       </a>
       <form  role="search" >
