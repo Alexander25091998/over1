@@ -35,5 +35,8 @@ class NewsDeleteView(DeleteView):
     template_name = 'weather/index.html'
 
 
-
+def history(request):
+    cities = City.objects.all()
+    history_cities = []
+    return render(request, 'weather/history.html')
 

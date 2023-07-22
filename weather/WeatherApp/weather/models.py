@@ -11,3 +11,15 @@ class City(models.Model):
     class Meta:
         verbose_name = "Город"
         verbose_name_plural = "Города"
+
+
+class CityHistory(models.Model):
+    name = models.CharField("Название города", max_length=15)
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "ИсторияГород"
+        verbose_name_plural = "ИсторияГорода"

@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     path('', views.index, name='home'),
     path('<int:pk>/delete', views.NewsDeleteView.as_view(), name='delete'),
+    path('/history', views.history, name='history'),
 ]
