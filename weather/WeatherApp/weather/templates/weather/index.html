@@ -184,8 +184,8 @@
       </a>
 
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="" class="floating-button">Главная</a>
-        <li class="nav-item"><a href="" class="floating-button">История</a>
+        <li class="nav-item"><a href="/" class="floating-button">Главная</a>
+        <li class="nav-item"><a href="/history" class="floating-button">История</a>
         <li class="nav-item"><a href="" class="floating-button">Что-то</a>
       </ul>
     </header>
@@ -193,7 +193,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-        <form  method="POST">
+        <form method="POST">
             {% csrf_token %}
             <label>Город</label><br>
             {{ form.name }}
@@ -201,7 +201,6 @@
         </form>
     </div>
     <div class="col-sm" style="font-family: 'Montserrat', sans-serif;">
-
 <h1>Погода в твоих городах</h1>
         {% for info in all_info %}
         <div class="alert alert-info">
@@ -212,7 +211,7 @@
                 </div>
                 <div class="col-2 ">
                     <img  src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="Фото погоды">
-                    <form  method="POST">
+                    <form method="POST">
                         {% csrf_token %}
                         <a href="{% url 'delete' info.id %}" value="Delete" type="submit" class="btn btn-danger">удалить</a>
                     </form>

@@ -13,9 +13,9 @@ class City(models.Model):
         verbose_name_plural = "Города"
 
 
-class CityHistory(models.Model):
-    name = models.CharField("Название города", max_length=15)
-    objects = models.Manager()
+class CityHistory(City):
+    name = models.ForeignKey(on_delete=models.SET_NULL,
+    null=True)
 
     def __str__(self):
         return self.name
@@ -23,3 +23,4 @@ class CityHistory(models.Model):
     class Meta:
         verbose_name = "ИсторияГород"
         verbose_name_plural = "ИсторияГорода"
+
