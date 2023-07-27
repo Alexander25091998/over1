@@ -3,6 +3,7 @@ from django.db import models
 
 class City(models.Model):
     name = models.CharField("Название города", max_length=15)
+    photo = models.ImageField(upload_to='image')
     objects = models.Manager()
 
     def __str__(self):
