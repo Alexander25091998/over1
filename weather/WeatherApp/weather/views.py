@@ -32,14 +32,6 @@ def index(request):
     if request.method == 'POST':
         form = CityForm(request.POST)
         form.save()
-        for citys in City.objects.all():
-            for city in CityHistory.objects.all():
-                if city == citys:
-                    print('есть')
-                else:
-                    CityHistory.objects.create(name=citys.name)
-        return redirect('/')
-
     form = CityForm
     context = {"all_info": all_cities, 'form': form}
     return render(request, 'weather/index.html', context)
@@ -48,7 +40,7 @@ def index(request):
 
 class NewsDeleteView(DeleteView):
     model = City
-    success_url = 'http://127.0.0.1:8000/yes'
+    success_url = 'http://127.0.0.1:8000'
     template_name = 'weather/index.html'
 
 
@@ -59,16 +51,23 @@ class NewsDeleteViewH(DeleteView):
 
 
 def history(request):
-    cities = CityHistory.objects.all()
     history_cities = []
-    for city in cities:
-        if city not in cities:
-            city_info = {
-                'id': city.id,
-                "city": city.name,
-            }
-            history_cities.append(city_info)
+    history_cities.clear()
+    for city in City.objects.all():
+        CityHistory.objects.create(id=city.id, name=city.name)
+    City.objects.all().delete()
+    for city in CityHistory.objects.all():
+        city_info = {
+            'city': city.name
+        }
+        history_cities.append(city_info)
 
     context = {"hist_info": history_cities}
     return render(request, 'weather/history.html', context)
 
+# for obj in Table1.objects.all():
+#     new_obj = Table2.objects.create(
+#         field1=obj.field1,
+#         field2=obj.field2,
+#         field3=obj.field3,
+#     )

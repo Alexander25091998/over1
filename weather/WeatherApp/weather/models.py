@@ -3,7 +3,6 @@ from django.db import models
 
 class City(models.Model):
     name = models.CharField("Название города", max_length=15)
-    photo = models.ImageField(upload_to='image')
     objects = models.Manager()
 
     def __str__(self):
@@ -14,9 +13,9 @@ class City(models.Model):
         verbose_name_plural = "Города"
 
 
-class CityHistory(City):
-    name = models.ForeignKey(on_delete=models.SET_NULL,
-    null=True)
+class CityHistory(models.Model):
+    name = models.CharField("Название города", max_length=15)
+    objects = models.Manager()
 
     def __str__(self):
         return self.name
