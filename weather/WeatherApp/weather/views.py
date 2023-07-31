@@ -32,6 +32,8 @@ def index(request):
     if request.method == 'POST':
         form = CityForm(request.POST)
         form.save()
+        return redirect('/')
+
     form = CityForm
     context = {"all_info": all_cities, 'form': form}
     return render(request, 'weather/index.html', context)

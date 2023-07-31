@@ -11,6 +11,7 @@ class City(models.Model):
     class Meta:
         verbose_name = "Город"
         verbose_name_plural = "Города"
+        ordering = ["-id"]
 
 
 class CityHistory(models.Model):
@@ -20,7 +21,9 @@ class CityHistory(models.Model):
     def __str__(self):
         return self.name
 
+
     class Meta:
         verbose_name = "ИсторияГород"
         verbose_name_plural = "ИсторияГорода"
+        ordering = ["-id"]
 
